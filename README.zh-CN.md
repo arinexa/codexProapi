@@ -33,7 +33,7 @@
 不想用命令行时，可直接安装桌面版：
 
 1. 打开 [GitHub Releases](https://github.com/violettoolssite/codexProapi/releases)。
-2. 选择最新版本（如 `v1.0.7`），在 **Assets** 中下载 **Windows 安装包**：`Codex Pro API Setup x.x.x.exe`（安装时可选路径、桌面/开始菜单快捷方式）。  
+2. 选择最新版本（如 `v1.0.8`），在 **Assets** 中下载 **Windows 安装包**：`Codex Pro API Setup x.x.x.exe`（安装时可选路径、桌面/开始菜单快捷方式）。  
    **说明：** 桌面版目前仅提供 Windows；macOS / Linux 用户请使用下方「命令行运行」方式。
 3. 安装并运行后，配置页会**直接在软件窗口内打开**，无需使用浏览器；关闭软件后，本地服务会随之关闭。账号与数据保存在您本机的用户数据目录，与安装目录分离。
 
@@ -86,6 +86,12 @@ codex-proapi
 - **确保「登录页」也走代理**：点击「使用 Codex 登录」后会跳转到 OpenAI 登录页，**该页面的访问也必须走 VPN**。若只有本机部分软件走代理、而浏览器未走代理，登录页仍会按你本机 IP 判定地区。请确认浏览器使用的是系统代理或全局代理，且代理已开启后再点登录。
 - **换节点或换 VPN**：部分代理节点所在国家/地区可能仍被判定为非支持地区，或存在 IP/DNS 泄漏。可尝试更换节点（优先选美国等支持地区）或更换 VPN 服务后重试。
 - **优先改用「粘贴 auth.json」**：在**能正常登录 Codex** 的环境（例如另一台已开代理的电脑、或同一台电脑上已用代理登录过 Codex 的浏览器），打开 `~/.codex/auth.json`（Windows：`%USERPROFILE%\\.codex\\auth.json`），复制全部内容，回到本机 Codex Pro API 的「账号」→「添加账号」→「粘贴 JSON」中粘贴并添加，即可不依赖本机 OAuth 登录。
+
+---
+
+## 后端报 400 "Missing required parameter: tool..."
+
+若接入 OpenCode 等带工具调用的客户端时出现 **400**、**Missing required parameter: 'tool...'**，多为请求里带了 `tools`/`tool_choice` 而后端格式要求不同。本服务已做兼容：无 `tools` 时会传 `tool_choice: none`。若仍报错，可在客户端侧暂时关闭「工具/函数调用」或使用仅对话模式再试。
 
 ---
 

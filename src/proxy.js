@@ -106,14 +106,27 @@ function estimatePromptTokens(openaiReq) {
 /**
  * 构建发往 ChatGPT Codex 后端的请求体
  * 后端强制要求 stream 为 true，故始终传 true；是否向客户端流式由 handleChatCompletions 根据 openaiReq.stream 决定。
+ * tools/tool_choice：无 tools 时传空数组且 tool_choice 为 'none'，避免后端报 Missing required parameter。
  */
 function buildResponsesRequest(openaiReq) {
+  const tools = Array.isArray(openaiReq.tools) ? openaiReq.tools : [];
+  const rawToolChoice = openaiReq.tool_choice;
+  let tool_choice;
+  if (tools.length === 0) {
+    tool_choice = 'none';
+  } else if (rawToolChoice === 'none' || rawToolChoice === 'auto') {
+    tool_choice = rawToolChoice;
+  } else if (rawToolChoice && typeof rawToolChoice === 'object' && rawToolChoice.type) {
+    tool_choice = rawToolChoice;
+  } else {
+    tool_choice = 'auto';
+  }
   return {
     model: openaiReq.model || 'gpt-5.3-codex',
     instructions: 'You are a helpful AI assistant. Provide clear, accurate, and concise responses.',
     input: messagesToInput(openaiReq.messages || []),
-    tools: openaiReq.tools || [],
-    tool_choice: openaiReq.tool_choice ?? 'auto',
+    tools,
+    tool_choice,
     parallel_tool_calls: false,
     reasoning: null,
     store: false,

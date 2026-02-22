@@ -1,6 +1,6 @@
 {
   "name": "codex-proapi",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "将 Codex (gpt-5.3-codex) 以 OpenAI 兼容 API 形式暴露，可在 Cline、Cursor 等客户端中使用。桌面版内置配置页，开箱即用。",
   "author": "violettoolssite",
   "type": "module",
@@ -28,7 +28,7 @@
     "node": ">=18"
   },
   "dependencies": {
-    "codex-proapi": "^1.0.7",
+    "codex-proapi": "^1.0.8",
     "express": "^4.21.0"
   },
   "devDependencies": {
